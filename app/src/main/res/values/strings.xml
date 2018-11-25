@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">Store</string>
-    <string name="image_desc">image</string>
+    <string name="app_name">yep</string>
+    <string name="image_desc">nope</string>
+    <plurals name="checkedNumber">
+        <item quantity="zero">Ther non</item>
+        <item quantity="one">Like %d only, lol</item>
+        <item quantity="other">Wee, %d is gr8 m8</item>
+    </plurals>
 </resources>

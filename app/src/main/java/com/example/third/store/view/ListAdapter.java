@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,13 +17,14 @@ import java.util.ArrayList;
 
 public class ListAdapter extends BaseAdapter{
 
-	private ArrayList<Product> modelList = new ArrayList<>();
+	private ArrayList<Product> modelList;
 	private Context context;
 
 	private static class ListViewHolder {
 		protected TextView text;
 		protected TextView description;
 		protected ImageView image;
+		protected CheckBox checkBox;
 	}
 
 	public ListAdapter(ArrayList<Product> modelList, Context context) {
@@ -59,6 +62,8 @@ public class ListAdapter extends BaseAdapter{
 			viewHolder.text = result.findViewById(R.id.productText);
 			viewHolder.image = result.findViewById(R.id.productImage);
 			viewHolder.description = result.findViewById(R.id.productDesc);
+			viewHolder.checkBox = result.findViewById(R.id.productCheckBox);
+
 			result.setTag(viewHolder);
 		} else {
 			result=cView;
@@ -66,8 +71,25 @@ public class ListAdapter extends BaseAdapter{
 		}
 		viewHolder.description.setText(modelList.get(position).getDesc());
 		viewHolder.text.setText(modelList.get(position).getName());
-		viewHolder.image.setImageResource(R.drawable.book);
+		viewHolder.image.setImageResource(modelList.get(position).getImage());
+		viewHolder.checkBox.setChecked(modelList.get(position).isChecked());
+		viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+				modelList.get(position).setChecked(!(modelList.get(position).isChecked()));
+			}
+		});
 
 		return result;
+	}
+
+	public int countTrueProducts () {
+		int count = 0;
+		for (Product value : modelList) {
+			if (value.isChecked()) {
+				count ++;
+			}
+		}
+		return count;
 	}
 }

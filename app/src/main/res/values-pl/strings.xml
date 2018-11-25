@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sklep</string>
+    <string name="image_desc">obrazek</string>
+    <plurals name="checkedNumber">
+        <item quantity="zero">Brak zaznaczonych produktów</item>
+        <item quantity="one">%d zaznaczony produkt</item>
+        <item quantity="few">%d zaznaczonych produktów</item>
+        <item quantity="many">%d zaznaczonych produktów</item>
+        <item quantity="other">%d zaznaczonych produktów</item>
+    </plurals>
+</resources>

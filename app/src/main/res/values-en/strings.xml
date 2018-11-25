@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Store</string>
+    <string name="image_desc">image</string>
+    <plurals name="checkedNumber">
+        <item quantity="one">%d Product checked</item>
+        <item quantity="other">%d Products checked</item>
+    </plurals>
+</resources>
